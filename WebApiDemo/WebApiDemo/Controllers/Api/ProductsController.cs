@@ -12,12 +12,9 @@ namespace WebApiDemo.Controllers
     public class ProductsController : ApiController
     {
         Product[] products = new Product[]{
-         new Product { ID = 1, Name = "Chocolate", AddingDate =
-            DateTime.Parse(DateTime.Today.ToString()), Numbers = 30 },
-         new Product { ID = 2, Name = "Biscuits", AddingDate =
-            DateTime.Parse(DateTime.Today.ToString()), Numbers = 20 },
-         new Product { ID = 3, Name = "Biscuits", AddingDate =
-            DateTime.Parse(DateTime.Today.ToString()), Numbers = 20 },
+          new Product { Id = 1, Name = "Tomato Soup", Category = "Groceries", Price = 1 },
+            new Product { Id = 2, Name = "Yo-yo", Category = "Toys", Price = 3.75M },
+            new Product { Id = 3, Name = "Hammer", Category = "Hardware", Price = 16.99M }
         };
         public IEnumerable<Product> GetAllProduct()
         {
@@ -25,7 +22,7 @@ namespace WebApiDemo.Controllers
         }
         public IHttpActionResult GetProduct(int id)
         {
-            var product = products.FirstOrDefault(p => p.ID == id);
+            var product = products.FirstOrDefault(p => p.Id == id);
             
             if(product == null)
             {
